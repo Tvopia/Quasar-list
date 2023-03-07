@@ -1,7 +1,8 @@
 <template>
   <q-page class="flex flex-center">
+    <h5></h5>
     <img
-      alt="Quasar logo"
+      alt="Cheburashka"
       src="../assets/img/stich.png"
       style="width: 200px; height: 200px"
     >
@@ -9,9 +10,5 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'IndexPage'
-})
 </script>
