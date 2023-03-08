@@ -2,10 +2,10 @@
   <q-page class="bg-yellow-5 column">
     <q-list separator bordered>
       <q-item
-        @click="task.done = !task.done"
+        
         clickable
         :class="{ 'done bg-blue-1': task.done }"
-        v-for="task in tasks"
+        v-for="(task, index) in tasks"
         :key="task.title"
         tag="label"
         v-ripple
@@ -20,7 +20,16 @@
         <q-item-section>
           <q-item-label>{{ task.title }}</q-item-label>
         </q-item-section>
-        <q-item-section v-if="task.done" side> x </q-item-section>
+        <q-item-section v-if="task.done" side>
+          <q-btn
+            @click.stop="deleteTask(index)"
+            dense
+            class="glossy"
+            round
+            color="pink-3"
+            icon="delete_forever"
+          />
+        </q-item-section>
       </q-item>
     </q-list>
     <div class="flex flex-center">
@@ -39,19 +48,25 @@ export default {
     return {
       tasks: [
         {
-          title: "Cheburashka",
+          title: "poke",
           done: true,
         },
         {
-          title: "Cheburashka2",
+          title: "You can poke at me too",
           done: false,
         },
         {
-          title: "Cheburashka3",
+          title: "Okay, okay poke",
           done: false,
         },
       ],
     };
+    
+  },
+  methods: {
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+    },
   },
 };
 </script>
