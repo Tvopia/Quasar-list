@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center bg-yellow-5">
     <h5></h5>
     <img
       alt="Cheburashka"

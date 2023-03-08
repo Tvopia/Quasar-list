@@ -6,7 +6,7 @@
         <q-toolbar-title> </q-toolbar-title>
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
       </q-toolbar>
-      <div class="q-px-lg q-pt-xl q-mb-md">
+      <div  class="q-px-lg q-pt-xl q-mb-md">
         <div class="text-h5">Cheburashka</div>
         <div class="text-subtitle">{{ todaysDate }}</div>
       </div>
@@ -22,13 +22,9 @@
       :breakpoint="600"
     >
       <q-scroll-area
-        style="
-          height: calc(100% - 167px);
-          border-right: 1px solid #ddd;
-        "
+        style="height: calc(100% - 167px); border-right: 1px solid #ddd"
       >
         <q-list padding>
-
           <q-item to="/" exact clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="list" />
@@ -77,7 +73,7 @@
       <q-img class="absolute-top image" style="height: 167px">
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="100px" class="q-mb-sm">
-            <img src="../assets/img/Merida.avif" />
+            <img class="imgAvatar" src="../assets/img/Merida.avif" />
           </q-avatar>
           <div class="text-weight-bold">Tvopi</div>
           <div>payko-v@bk.ru</div>
@@ -87,10 +83,11 @@
     </q-drawer>
 
     <q-page-container>
-      <keep-alive>
-        <router-view />
-      </keep-alive>
-      
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </q-page-container>
 
     <q-footer elevated class="bg-grey-8 text-white">
