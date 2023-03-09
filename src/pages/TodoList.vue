@@ -2,16 +2,24 @@
   <q-page class="bg-yellow-5 column">
     <div class="row q-pa-sm dg-primary">
       <q-input
+        @keyup.enter="addTask"
         class="q-pa-lg col"
         filled
         square
         bg-color="white"
-        v-model="text"
+        v-model="newTask"
         placeholder="Write"
         :dense="dense"
       >
         <template v-slot:append>
-          <q-btn round dense flat icon="add" />
+          <q-btn
+            :disabled="!newTask"
+            @click="addTask"
+            round
+            dense
+            flat
+            icon="add"
+          />
         </template>
       </q-input>
     </div>
@@ -60,6 +68,7 @@
 export default {
   data() {
     return {
+      newTask: "",
       tasks: [
         {
           title: "poke",
@@ -99,6 +108,15 @@ export default {
             icon: "linked_camera",
           });
         });
+    },
+    addTask() {
+      if (this.newTask) {
+        this.tasks.push({
+          title: this.newTask,
+          done: false,
+        });
+        this.newTask = "";
+      }
     },
   },
 };
