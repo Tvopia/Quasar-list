@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-lg">
+  <q-page class="q-pa-lg bg-yellow-5">
     <h5>Help</h5>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo

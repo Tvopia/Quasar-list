@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-yellow-5 column">
+  <q-page class="bg-yellow-5 column bg-yellow-5">
     <q-list separator bordered>
       <q-item
         clickable
