@@ -2,7 +2,6 @@
   <q-page class="bg-yellow-5 column">
     <q-list separator bordered>
       <q-item
-        
         clickable
         :class="{ 'done bg-blue-1': task.done }"
         v-for="(task, index) in tasks"
@@ -61,11 +60,30 @@ export default {
         },
       ],
     };
-    
   },
   methods: {
     deleteTask(index) {
-      this.tasks.splice(index, 1);
+      this.$q
+        .dialog({
+          dark: true,
+          title: "Delete",
+          message: "Are you sure you want to delete?",
+          cancel: true,
+          persistent: true,
+        })
+        .onOk(() => {
+          this.tasks.splice(index, 1);
+          this.$q.notify({
+          message: 'Okay, well delete it.',
+          color: 'pink-3', 
+          icon: 'directions_run',
+        });
+        this.$q.notify({
+          message: 'Took a picture.',
+          color: 'red',
+          icon: 'linked_camera',
+        });
+        });
     },
   },
 };
