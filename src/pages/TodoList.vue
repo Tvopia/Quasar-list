@@ -1,5 +1,20 @@
 <template>
-  <q-page class="bg-yellow-5 column bg-yellow-5">
+  <q-page class="bg-yellow-5 column">
+    <div class="row q-pa-sm dg-primary">
+      <q-input
+        class="q-pa-lg col"
+        filled
+        square
+        bg-color="white"
+        v-model="text"
+        placeholder="Write"
+        :dense="dense"
+      >
+        <template v-slot:append>
+          <q-btn round dense flat icon="add" />
+        </template>
+      </q-input>
+    </div>
     <q-list separator bordered>
       <q-item
         clickable
@@ -74,15 +89,15 @@ export default {
         .onOk(() => {
           this.tasks.splice(index, 1);
           this.$q.notify({
-          message: 'Okay, well delete it.',
-          color: 'pink-3', 
-          icon: 'directions_run',
-        });
-        this.$q.notify({
-          message: 'Took a picture.',
-          color: 'red',
-          icon: 'linked_camera',
-        });
+            message: "Okay, well delete it.",
+            color: "pink-3",
+            icon: "directions_run",
+          });
+          this.$q.notify({
+            message: "Took a picture.",
+            color: "red",
+            icon: "linked_camera",
+          });
         });
     },
   },
