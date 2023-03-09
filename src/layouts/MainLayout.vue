@@ -136,9 +136,15 @@ export default {
   height: 100%;
   z-index: -1;
   opacity: 0.5;
+
 }
 
 .image {
   background-color: $primary;
 }
+
+.imgAvatar{
+  object-fit: cover;
+}
+
 </style>
