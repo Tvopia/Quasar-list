@@ -54,12 +54,18 @@
         </q-item-section>
       </q-item>
     </q-list>
-    <div class="flex flex-center">
-      <img
-        alt="Cheburashka"
-        src="../assets/img/stich.png"
-        style="width: 200px; height: 200px"
-      />
+
+    <div 
+    v-if="!tasks.length"
+    class="no-task absolute-center">
+      <div class="text-h4 text-primary text-center">No</div>
+      <div class="flex flex-center">
+        <img
+          alt="Cheburashka"
+          src="../assets/img/stich.png"
+          style="width: 200px; height: 200px"
+        />
+      </div>
     </div>
   </q-page>
 </template>
@@ -70,7 +76,7 @@ export default {
     return {
       newTask: "",
       tasks: [
-        {
+        /* {
           title: "poke",
           done: true,
         },
@@ -81,7 +87,7 @@ export default {
         {
           title: "Okay, okay poke",
           done: false,
-        },
+        }, */
       ],
     };
   },
@@ -128,5 +134,8 @@ export default {
     text-decoration: line-through;
     color: pink;
   }
+}
+
+.no-task {
 }
 </style>
